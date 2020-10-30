@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import TodoStore from './stores/TodoStore'
+import PostsStore from './stores/PostsStore'
+import StoreContext from './StoreContext';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App TodoStore={TodoStore}/>
+    <StoreContext.Provider value={[TodoStore, PostsStore]}>
+      <App/>
+    </StoreContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
